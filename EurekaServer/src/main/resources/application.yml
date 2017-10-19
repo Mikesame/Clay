@@ -1,0 +1,17 @@
+server:
+  port: 5000
+spring:
+  application:
+    name: EurekaServer
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:5000/eureka/,http://${eureka.instance.hostname}:5001/eureka/,http://${eureka.instance.hostname}:5002/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    hostname: localhost
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2

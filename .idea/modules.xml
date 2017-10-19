@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Clay.iml" filepath="$PROJECT_DIR$/Clay.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/EurekaServer/EurekaServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LoggerService/LoggerService.iml" filepath="$PROJECT_DIR$/LoggerService/LoggerService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessageService/MessageService.iml" filepath="$PROJECT_DIR$/MessageService/MessageService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OAuthService/OAuthService.iml" filepath="$PROJECT_DIR$/OAuthService/OAuthService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OrderService/OrderService.iml" filepath="$PROJECT_DIR$/OrderService/OrderService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PermissionService/PermissionService.iml" filepath="$PROJECT_DIR$/PermissionService/PermissionService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProductService/ProductService.iml" filepath="$PROJECT_DIR$/ProductService/ProductService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UserService/UserService.iml" filepath="$PROJECT_DIR$/UserService/UserService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZuulServer/ZuulServer.iml" filepath="$PROJECT_DIR$/ZuulServer/ZuulServer.iml" />
+    </modules>
+  </component>
+</project>

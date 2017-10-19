@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ConfigServer" />
+        <module name="EurekaServer" />
+        <module name="LoggerService" />
+        <module name="MessageService" />
+        <module name="OAuthService" />
+        <module name="OrderService" />
+        <module name="PermissionService" />
+        <module name="ProductService" />
+        <module name="UserService" />
+        <module name="ZuulServer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Clay" target="1.6" />
+      <module name="ConfigServer" target="1.6" />
+      <module name="EurekaServer" target="1.6" />
+      <module name="LoggerService" target="1.6" />
+      <module name="MessageService" target="1.6" />
+      <module name="OAuthService" target="1.6" />
+      <module name="OrderService" target="1.6" />
+      <module name="PermissionService" target="1.6" />
+      <module name="ProductService" target="1.6" />
+      <module name="UserService" target="1.6" />
+      <module name="ZuulServer" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
