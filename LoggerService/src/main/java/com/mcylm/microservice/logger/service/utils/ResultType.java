@@ -12,4 +12,9 @@ public class ResultType {
     //返回值状态码  失败状态码
     public static final Boolean FLASE_CODE=false;//表示成功
 
+    public static final String SUCCESS_MESSAGE="SUCCESS";
+
+    public static final String FAILED_MESSAGE="FAILED";
+
+
 }
