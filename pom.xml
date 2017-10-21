@@ -19,6 +19,7 @@
         <module>OrderService</module>
         <module>PermissionService</module>
         <module>MessageService</module>
+        <module>ClaymcService</module>
     </modules>
 
     <parent>
