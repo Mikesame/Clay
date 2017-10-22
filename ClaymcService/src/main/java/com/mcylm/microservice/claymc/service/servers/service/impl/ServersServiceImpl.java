@@ -77,4 +77,13 @@ public class ServersServiceImpl implements ServersService {
 
         return result;
     }
+
+    @Override
+    public Result selectMineCraftServerByParams(Clay_mc_servers_po clay_mc_servers_po) {
+        result.setCode(ResultType.SUCCESS_CODE);
+        result.setIsTrue(true);
+        result.setMessage("查询服务器成功");
+        result.setData(serversMapper.selectServersByParams(clay_mc_servers_po));
+        return result;
+    }
 }

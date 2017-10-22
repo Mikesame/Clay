@@ -20,4 +20,11 @@ public interface ServersService {
      * @return
      */
     Result updateMineCraftServerByParamsWithOutLogin(Clay_mc_servers_po clay_mc_serversPo);
+
+    /**
+     * 查询服务器列表
+     * @param clay_mc_servers_po
+     * @return
+     */
+    Result selectMineCraftServerByParams(Clay_mc_servers_po clay_mc_servers_po);
 }

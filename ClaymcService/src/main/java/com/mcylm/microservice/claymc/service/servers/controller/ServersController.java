@@ -35,4 +35,11 @@ public class ServersController {
         return serversService.updateMineCraftServerByParamsWithOutLogin(clay_mc_serversPo);
     }
 
+    @ApiOperation(value="【查询】查询一个MC服务器信息，无需登录", notes="测试接口详细描述")
+    @ApiImplicitParam(name = "clay_mc_serversPo", value = "服务器详细实体clay_mc_servers", required = true, dataType = "Clay_mc_servers_po")
+    @RequestMapping(value = "/selectMineCraftServers",method = {RequestMethod.GET,RequestMethod.POST})
+    public Result selectMineCraftServers(@RequestBody Clay_mc_servers_po clay_mc_serversPo){
+        return serversService.selectMineCraftServerByParams(clay_mc_serversPo);
+    }
+
 }

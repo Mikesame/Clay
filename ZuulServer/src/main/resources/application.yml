@@ -1,1 +1,2 @@
 zuul.routes.LoggerService.path: /logger/**
+zuul.routes.ClaymcService.path: /mclist/**

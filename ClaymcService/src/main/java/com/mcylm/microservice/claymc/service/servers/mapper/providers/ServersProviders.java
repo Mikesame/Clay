@@ -163,4 +163,27 @@ public class ServersProviders {
             WHERE("server_id = #{clay_mc_servers_po.server_id}");
         }}.toString();
     }
+
+    public String select_clay_mc_servers_Table(final @Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po){
+        return new SQL(){{
+            SELECT("cms.server_id","cms.server_no","cms.server_title",
+                    "cms.server_content","cb_net_type.code_attribute","cms.server_host",
+                    "cms.server_port","cb_version.code_attribute",
+                    "CASE WHEN cms.server_type = '0' THEN '纯净服' WHEN '1' THEN '模组服' ELSE '未知服' END server_type",
+                    "cms.like_num","cms.unlike_num"
+            );
+            FROM("clay_mc_servers cms");
+            LEFT_OUTER_JOIN("clay_basicdate cb_net_type ON cb_net_type.code_id = cms.server_net_type",
+                    "clay_basicdate cb_version ON cb_version.code_id = cms.server_version");
+            WHERE("cms.delflag = '1'");
+            if(StringUtils.isNotEmpty(clay_mc_servers_po.getServer_title())){
+                clay_mc_servers_po.setServer_title("%"+clay_mc_servers_po.getServer_title()+"%");
+                WHERE("cms.server_title LIKE #{clay_mc_servers_po.server_title}");
+            }
+            if(null != clay_mc_servers_po.getServer_no())
+                WHERE("cms.server_no = #{clay_mc_servers_po.server_no}");
+            if(StringUtils.isNotEmpty(clay_mc_servers_po.getServer_host()))
+                WHERE("cms.server_host = #{clay_mc_servers_po.server_host}");
+        }}.toString();
+    }
 }
