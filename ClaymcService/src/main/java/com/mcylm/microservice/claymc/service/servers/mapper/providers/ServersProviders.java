@@ -167,10 +167,10 @@ public class ServersProviders {
     public String select_clay_mc_servers_Table(final @Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po){
         return new SQL(){{
             SELECT("cms.server_id","cms.server_no","cms.server_title",
-                    "cms.server_content","cb_net_type.code_attribute","cms.server_host",
-                    "cms.server_port","cb_version.code_attribute",
+                    "cms.server_content","cb_net_type.code_attribute server_net_type","cms.server_host",
+                    "cms.server_port","cb_version.code_attribute server_version",
                     "CASE WHEN cms.server_type = '0' THEN '纯净服' WHEN '1' THEN '模组服' ELSE '未知服' END server_type",
-                    "cms.like_num","cms.unlike_num"
+                    "cms.like_num","cms.unlike_num","cms.online_num","cms.server_status"
             );
             FROM("clay_mc_servers cms");
             LEFT_OUTER_JOIN("clay_basicdate cb_net_type ON cb_net_type.code_id = cms.server_net_type",
@@ -184,6 +184,31 @@ public class ServersProviders {
                 WHERE("cms.server_no = #{clay_mc_servers_po.server_no}");
             if(StringUtils.isNotEmpty(clay_mc_servers_po.getServer_host()))
                 WHERE("cms.server_host = #{clay_mc_servers_po.server_host}");
+        }}.toString();
+    }
+
+    public String select_clay_mc_server_Table(final @Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po){
+        return new SQL(){{
+            SELECT("cms.server_id","cms.server_no","cms.server_title",
+                    "cms.server_content","cb_net_type.code_attribute server_net_type","cms.server_host",
+                    "cms.server_port","cb_version.code_attribute server_version",
+                    "CASE WHEN cms.server_type = '0' THEN '纯净服' WHEN '1' THEN '模组服' ELSE '未知服' END server_type",
+                    "cms.like_num","cms.unlike_num","cms.online_num","cms.server_status"
+            );
+            FROM("clay_mc_servers cms");
+            LEFT_OUTER_JOIN("clay_basicdate cb_net_type ON cb_net_type.code_id = cms.server_net_type",
+                    "clay_basicdate cb_version ON cb_version.code_id = cms.server_version");
+            WHERE("cms.delflag = '1'","cms.server_id = #{clay_mc_servers_po.server_id}");
+        }}.toString();
+    }
+
+    public String select_mc_servers_info_Table(final @Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po){
+        return new SQL(){{
+            SELECT("cmsi.info_id","cmsi.info_title","cmsi.info_content",
+                    "cmsi.info_type","cmsi.like_num","cmsi.unlike_num"
+            );
+            FROM("clay_mc_servers_info cmsi");
+            WHERE("cmsi.delflag = '1'","cmsi.server_id = #{clay_mc_servers_po.server_id}");
         }}.toString();
     }
 }

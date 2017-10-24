@@ -36,4 +36,20 @@ public interface ServersMapper {
      */
     @SelectProvider(type = ServersProviders.class,method = "select_clay_mc_servers_Table")
     List<Map<Object,Object>> selectServersByParams(@Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po);
+
+    /**
+     * 获取服务器详情
+     * @param clay_mc_servers_po
+     * @return
+     */
+    @SelectProvider(type = ServersProviders.class,method = "select_clay_mc_server_Table")
+    Map<Object,Object> selectServerDetailsByParams(@Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po);
+
+    /**
+     *
+     * @param clay_mc_servers_po
+     * @return
+     */
+    @SelectProvider(type = ServersProviders.class,method = "select_mc_servers_info_Table")
+    List<Map<Object,Object>> selectServerInfosByParams(@Param("clay_mc_servers_po") Clay_mc_servers_po clay_mc_servers_po);
 }

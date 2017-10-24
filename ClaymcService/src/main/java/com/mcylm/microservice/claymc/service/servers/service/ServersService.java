@@ -27,4 +27,11 @@ public interface ServersService {
      * @return
      */
     Result selectMineCraftServerByParams(Clay_mc_servers_po clay_mc_servers_po);
+
+    /**
+     * 查询 服务器 的详细信息
+     * @param clay_mc_servers_po
+     * @return
+     */
+    Result selectMineCraftServerDetailsByParams(Clay_mc_servers_po clay_mc_servers_po);
 }

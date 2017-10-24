@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="BasicDataService" />
         <module name="ClaymcService" />
         <module name="ConfigServer" />
         <module name="EurekaServer" />
@@ -20,6 +21,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="BasicDataService" target="1.6" />
       <module name="Clay" target="1.6" />
       <module name="ClaymcService" target="1.6" />
       <module name="ConfigServer" target="1.6" />

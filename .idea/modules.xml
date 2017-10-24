@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BasicDataService/BasicDataService.iml" filepath="$PROJECT_DIR$/BasicDataService/BasicDataService.iml" />
       <module fileurl="file://$PROJECT_DIR$/Clay.iml" filepath="$PROJECT_DIR$/Clay.iml" />
       <module fileurl="file://$PROJECT_DIR$/ClaymcService/ClaymcService.iml" filepath="$PROJECT_DIR$/ClaymcService/ClaymcService.iml" />
       <module fileurl="file://$PROJECT_DIR$/ConfigServer/ConfigServer.iml" filepath="$PROJECT_DIR$/ConfigServer/ConfigServer.iml" />

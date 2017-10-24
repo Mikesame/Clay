@@ -10,6 +10,8 @@ import com.mcylm.microservice.claymc.service.utils.StringUtil.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 /**
  * Created by Administrator on 2017/10/21.
  */
@@ -85,5 +87,22 @@ public class ServersServiceImpl implements ServersService {
         result.setMessage("查询服务器成功");
         result.setData(serversMapper.selectServersByParams(clay_mc_servers_po));
         return result;
+    }
+
+    @Override
+    public Result selectMineCraftServerDetailsByParams(Clay_mc_servers_po clay_mc_servers_po) {
+
+        if(clay_mc_servers_po == null || clay_mc_servers_po.getServer_id() == null || clay_mc_servers_po.getServer_id().equals("")){
+            result.setCode("404");
+            result.setMessage("获取服务器失败，条件参数为空");
+            return result;
+        }
+
+        Map<Object,Object> map = serversMapper.selectServerDetailsByParams(clay_mc_servers_po);
+        map.put("server_infos",serversMapper.selectServerInfosByParams(clay_mc_servers_po));
+
+
+
+        return null;
     }
 }
