@@ -1,9 +1,11 @@
 package com.mcylm.microservice.claymc.service.model.po;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/10/21.
  */
-public class Clay_mc_servers_info_po {
+public class Clay_mc_servers_info_po implements Serializable{
 
     private String info_id;
     private String info_title;

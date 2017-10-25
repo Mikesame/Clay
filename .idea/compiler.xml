@@ -12,6 +12,7 @@
         <module name="EurekaServer" />
         <module name="LoggerService" />
         <module name="MessageService" />
+        <module name="MissionService" />
         <module name="OAuthService" />
         <module name="OrderService" />
         <module name="PermissionService" />
@@ -28,6 +29,7 @@
       <module name="EurekaServer" target="1.6" />
       <module name="LoggerService" target="1.6" />
       <module name="MessageService" target="1.6" />
+      <module name="MissionService" target="1.6" />
       <module name="OAuthService" target="1.6" />
       <module name="OrderService" target="1.6" />
       <module name="PermissionService" target="1.6" />

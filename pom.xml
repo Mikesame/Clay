@@ -21,6 +21,7 @@
         <module>MessageService</module>
         <module>ClaymcService</module>
         <module>BasicDataService</module>
+        <module>MissionService</module>
     </modules>
 
     <parent>
