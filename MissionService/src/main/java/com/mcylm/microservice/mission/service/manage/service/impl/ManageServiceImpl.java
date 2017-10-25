@@ -27,4 +27,9 @@ public class ManageServiceImpl implements ManageService {
     public Result deleteMission(Mission mission) {
         return null;
     }
+
+    @Override
+    public Result selectMissionsByParams() {
+        return null;
+    }
 }
