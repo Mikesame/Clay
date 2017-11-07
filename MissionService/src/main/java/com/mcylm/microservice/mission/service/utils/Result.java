@@ -8,9 +8,17 @@ package com.mcylm.microservice.mission.service.utils;
 public class Result<T> {
 	private String code;
 	private String message;
+	private String totalNum;
 	private boolean isTrue;
 	private T data;
-	
+
+	public String getTotalNum() {
+		return totalNum;
+	}
+
+	public void setTotalNum(String totalNum) {
+		this.totalNum = totalNum;
+	}
 	public String getCode() {
 		return code;
 	}

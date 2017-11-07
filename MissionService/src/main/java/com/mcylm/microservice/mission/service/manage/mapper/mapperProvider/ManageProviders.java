@@ -11,39 +11,39 @@ public class ManageProviders {
         return new SQL(){{
             INSERT_INTO("clay_mission");
             if(StringUtils.isNotEmpty(mission.getMission_id()))
-                VALUES("mission_id","#{mission_id}");
+                VALUES("mission_id","#{mission.mission_id}");
             if(StringUtils.isNotEmpty(mission.getMission_title()))
-                VALUES("mission_title","#{mission_title}");
+                VALUES("mission_title","#{mission.mission_title}");
             if(StringUtils.isNotEmpty(mission.getMission_content()))
-                VALUES("mission_leader","#{mission_leader}");
+                VALUES("mission_leader","#{mission.mission_leader}");
             if(StringUtils.isNotEmpty(mission.getMission_deadline()))
-                VALUES("mission_deadline","#{mission_deadline}");
+                VALUES("mission_deadline","#{mission.mission_deadline}");
             if(StringUtils.isNotEmpty(mission.getMission_priorty()))
-                VALUES("mission_priority","#{mission_priority}");
+                VALUES("mission_priority","#{mission.mission_priority}");
             if(StringUtils.isNotEmpty(mission.getMission_remind()))
-                VALUES("mission_remind","#{mission_remind}");
+                VALUES("mission_remind","#{mission.mission_remind}");
             if(StringUtils.isNotEmpty(mission.getMission_filename()))
-                VALUES("mission_filename","#{mission_filename}");
+                VALUES("mission_filename","#{mission.mission_filename}");
             if(StringUtils.isNotEmpty(mission.getMission_filepath()))
-                VALUES("mission_filepath","#{mission_filepath}");
+                VALUES("mission_filepath","#{mission.mission_filepath}");
             if(StringUtils.isNotEmpty(mission.getIs_done()))
-                VALUES("is_done","#{is_done}");
+                VALUES("is_done","#{mission.is_done}");
             if(StringUtils.isNotEmpty(mission.getIs_partner_visible()))
-                VALUES("is_partner_visible","#{is_partner_visible}");
+                VALUES("is_partner_visible","#{mission.is_partner_visible}");
             if(StringUtils.isNotEmpty(mission.getIs_locked()))
-                VALUES("is_locked","#{is_locked}");
+                VALUES("is_locked","#{mission.is_locked}");
             if(StringUtils.isNotEmpty(mission.getIs_private()))
-                VALUES("is_private","#{is_private}");
+                VALUES("is_private","#{mission.is_private}");
             if(StringUtils.isNotEmpty(mission.getAdd_user()))
-                VALUES("add_user","#{add_user}");
+                VALUES("add_user","#{mission.add_user}");
             if(StringUtils.isNotEmpty(mission.getAdd_time()))
-                VALUES("add_time","#{add_time}");
+                VALUES("add_time","#{mission.add_time}");
             if(StringUtils.isNotEmpty(mission.getModify_user()))
                 VALUES("modify_user","#{modify_user}");
             if(StringUtils.isNotEmpty(mission.getModify_time()))
-                VALUES("modify_time","#{modify_time}");
+                VALUES("modify_time","#{mission.modify_time}");
             if(StringUtils.isNotEmpty(mission.getDelflag()))
-                VALUES("delflag","#{delflag}");
+                VALUES("delflag","#{mission.delflag}");
         }}.toString();
     }
 
@@ -51,39 +51,39 @@ public class ManageProviders {
         return new SQL(){{
             UPDATE("clay_mission");
             if(StringUtils.isNotEmpty(mission.getMission_title()))
-                SET("mission_title = #{mission_title}");
+                SET("mission_title = #{mission.mission_title}");
             if(StringUtils.isNotEmpty(mission.getMission_content()))
-                SET("mission_leader = #{mission_leader}");
+                SET("mission_leader = #{mission.mission_leader}");
             if(StringUtils.isNotEmpty(mission.getMission_deadline()))
-                SET("mission_deadline = #{mission_deadline}");
+                SET("mission_deadline = #{mission.mission_deadline}");
             if(StringUtils.isNotEmpty(mission.getMission_priorty()))
-                SET("mission_priority = #{mission_priority}");
+                SET("mission_priority = #{mission.mission_priority}");
             if(StringUtils.isNotEmpty(mission.getMission_remind()))
-                SET("mission_remind = #{mission_remind}");
+                SET("mission_remind = #{mission.mission_remind}");
             if(StringUtils.isNotEmpty(mission.getMission_filename()))
-                SET("mission_filename = #{mission_filename}");
+                SET("mission_filename = #{mission.mission_filename}");
             if(StringUtils.isNotEmpty(mission.getMission_filepath()))
-                SET("mission_filepath = #{mission_filepath}");
+                SET("mission_filepath = #{mission.mission_filepath}");
             if(StringUtils.isNotEmpty(mission.getIs_done()))
-                SET("is_done = #{is_done}");
+                SET("is_done = #{mission.is_done}");
             if(StringUtils.isNotEmpty(mission.getIs_partner_visible()))
-                SET("is_partner_visible = #{is_partner_visible}");
+                SET("is_partner_visible = #{mission.is_partner_visible}");
             if(StringUtils.isNotEmpty(mission.getIs_locked()))
-                SET("is_locked = #{is_locked}");
+                SET("is_locked = #{mission.is_locked}");
             if(StringUtils.isNotEmpty(mission.getIs_private()))
-                SET("is_private = #{is_private}");
+                SET("is_private = #{mission.is_private}");
             if(StringUtils.isNotEmpty(mission.getAdd_user()))
-                SET("add_user = #{add_user}");
+                SET("add_user = #{mission.add_user}");
             if(StringUtils.isNotEmpty(mission.getAdd_time()))
-                SET("add_time = #{add_time}");
+                SET("add_time = #{mission.add_time}");
             if(StringUtils.isNotEmpty(mission.getModify_user()))
-                SET("modify_user = #{modify_user}");
+                SET("modify_user = #{mission.modify_user}");
             if(StringUtils.isNotEmpty(mission.getModify_time()))
-                SET("modify_time = #{modify_time}");
+                SET("modify_time = #{mission.modify_time}");
             if(StringUtils.isNotEmpty(mission.getDelflag()))
-                SET("delflag = #{delflag}");
+                SET("delflag = #{mission.delflag}");
             if(StringUtils.isNotEmpty(mission.getMission_id()))
-                SET("mission_id = #{mission_id}");
+                WHERE("mission_id = #{mission.mission_id}");
         }}.toString();
     }
 
@@ -100,12 +100,12 @@ public class ManageProviders {
     public String selectMissionsByParams(final @Param("mission") Mission mission){
         return new SQL(){{
             SELECT("cm.mission_id","cm.mission_title","cm.mission_content","cm.mission_leader",
-                    "cui_mission_leader.user_info_name mission_leader_name","cm.mission_deadline",
+                    "cui_mission_leader.user_info_name mission_leader_name","date_format(cm.mission_deadline,'%Y-%m-%d %T') mission_deadline",
                     "cm.mission_priority","cm.mission_remind","cm.mission_filename","cm.mission_filepath","cm.is_done",
                     "cm.is_partner_visible","cm.is_locked","cm.is_private","cm.add_time","cm.modify_time");
             FROM("clay_mission cm");
-            LEFT_OUTER_JOIN("clay_user_info cui_mission_leader on cui.user_id = cm.mission_leader");
-            WHERE("cm.delflag = '1'","cm.is_done = '0'");
+            LEFT_OUTER_JOIN("clay_user_info cui_mission_leader on cui_mission_leader.user_id = cm.mission_leader");
+            WHERE("cm.delflag = '1'","cm.is_done = '0'","date_format(cm.mission_deadline,'%e %b %Y') = date_format(now(),'%e %b %Y')");
 
 //            if(mission.get)
 

@@ -9,8 +9,8 @@ public interface ManageService {
 
     Result updateMission(Mission mission);
 
-    Result deleteMission(Mission mission);
+    Result finishMission(Mission mission);
 
-    Result selectMissionsByParams();
+    Result selectMissionsByParams(Mission mission);
 
 }

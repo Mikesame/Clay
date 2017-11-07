@@ -8,7 +8,7 @@ import java.util.UUID;
 public class StringUtils {
 
     public static boolean isEmpty(String str) {
-        return str == null || str.trim().length() == 0;
+        return str == null;
     }
 
     public static boolean isNotEmpty(String str) {
