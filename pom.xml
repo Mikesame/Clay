@@ -82,6 +82,13 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
+        <!-- 阿里巴巴rocketMQ Client -->
+        <dependency>
+            <groupId>com.alibaba.rocketmq</groupId>
+            <artifactId>rocketmq-client</artifactId>
+            <version>3.2.6</version>
+        </dependency>
+
         <!-- 注意是starter,自动配置 -->
         <!--<dependency>-->
             <!--<groupId>org.springframework.boot</groupId>-->

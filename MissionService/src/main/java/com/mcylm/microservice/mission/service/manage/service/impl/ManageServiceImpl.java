@@ -1,11 +1,13 @@
 package com.mcylm.microservice.mission.service.manage.service.impl;
 
+import com.mcylm.microservice.mission.service.manage.dao.ManageDao;
 import com.mcylm.microservice.mission.service.manage.mapper.ManageMapper;
 import com.mcylm.microservice.mission.service.manage.service.ManageService;
 import com.mcylm.microservice.mission.service.model.vo.Mission;
 import com.mcylm.microservice.mission.service.utils.DateUtils.DateUtil;
 import com.mcylm.microservice.mission.service.utils.Result;
 import com.mcylm.microservice.mission.service.utils.ResultType;
+import com.mcylm.microservice.mission.service.utils.Sender;
 import com.mcylm.microservice.mission.service.utils.StringUtil.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,8 +25,11 @@ public class ManageServiceImpl implements ManageService {
     @Autowired
     private ManageMapper manageMapper;
 
+    @Autowired
+    private ManageDao manageDao;
+
     @Override
-    public Result addMission(Mission mission) {
+    public Result addMission(final Mission mission) {
         //判断前台传过来的参数是否为空
         if(mission == null){
             result.setCode(ResultType.FAILD_CODE);
@@ -52,10 +57,22 @@ public class ManageServiceImpl implements ManageService {
             return result;
         }
 
-        result.setCode(ResultType.SUCCESS_CODE);
-        result.setMessage("新增任务成功！");
-        result.setIsTrue(true);
-        return result;
+        Sender sender = new Sender(){{
+            setData(mission);
+            setMessage("insert a new mission");
+            setUuid(StringUtils.getUUID());
+            setTopic("mission");
+            setTags("mission_insert");
+            setType("insert");
+        }};
+
+        Result result = manageDao.sendMessage(sender);
+
+        this.result.setCode(ResultType.SUCCESS_CODE);
+        this.result.setData(result);
+        this.result.setMessage("新增任务成功！");
+        this.result.setIsTrue(true);
+        return this.result;
     }
 
     @Override
